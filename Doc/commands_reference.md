@@ -52,15 +52,31 @@ Example output:
 *Do NOT ever use this address/keys, info is fake*
 
 ## txsend
-*NOT* secure, do not use
+**WARNING: Must never be used in an open network**
+                        
+> takes 6 parameters: timestamp, privkey, recipient, amount, operation, data
+
+Constructs a transaction remotely. The private key is transferred to the executing node without encryption, completely unprotected. Inserts transaction into the mempool, returns signature.
 
 ## mpinsert
+> takes no parameters
+ 
+Inserts transaction or transaction list into the mempool. Transactions need to be preconstructed (signed), same as mempool exchange between nodes. Leads to `mp.MEMPOOL.merge` in **mempool.py**
 
 ## addlist
+> takes one parameter: address
+
+Returns all transactions where the given address is a sender or recipient.
 
 ## listlim
+> takes one parameter: list_limit
+
+Returns a number of blocks, starting with the most recent one. The lower bound is set by the `list_limit` parameter. For json-formatted output, use `listlimjson`.
 
 ## addlistlim
+> takes two parameters: address, limit
+
+Returns all transactions where the given address is a sender or recipient, with a given limit. 
 
 ## blockget
 > takes a block height (int), returns a list of transactions.
@@ -142,4 +158,5 @@ Example output (json format):
 
 ## api_getpeerinfo
 > takes no parameter, returns a list
+
 Not stable
