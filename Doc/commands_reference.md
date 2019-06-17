@@ -90,11 +90,11 @@ Returns a dict with
 * known: Did that address appear on a transaction?  
 * pubkey: The pubkey of the address if it signed a transaction
 
-## api_getblocksafter
+## api_getblocksince
 > takes a block height, returns a list of list
 
 Returns the full blocks and transactions following a given block_height
-Returns at most transactions from 10 blocks
+Returns at most transactions from 10 blocks (the most recent ones if it truncates)
 
 ## api_getbalance
 > takes a list of addresses, the minimum number of confirmations needed and returns a float.
@@ -143,4 +143,3 @@ Example output (json format):
 ## api_getpeerinfo
 > takes no parameter, returns a list
 Not stable
-
